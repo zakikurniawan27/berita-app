@@ -7,3 +7,4 @@ use App\Http\Controllers\beritaController as Berita;
 Route::get('/', [Berita::class,'home'])->name('home');
 
 Route::get('/login', [Auth::class, 'login'])->name('login');
+Route::get('/registrasi', [Auth::class, 'registrasi'])->name('registrasi');
