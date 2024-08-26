@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
+use App\Models\User;
 
 class userController extends Controller
 {
@@ -30,4 +32,21 @@ class userController extends Controller
         return view('auth.registrasi');
     }
 
+    public function createRegistrasi(Request $request){
+        $request->validate([
+            'username'=> 'required',
+            'email' => 'required|email|unique:users,email',
+            'password' => 'required|min:4'
+        ]);
+
+        $data = new User([
+            'username'=> $request->username,
+            'email'=> $request->email,
+            'password'=> Hash::make($request->password)
+        ]);
+
+        $data->save();
+
+        return redirect('/login');
+    }
 }
