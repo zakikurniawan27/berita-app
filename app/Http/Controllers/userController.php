@@ -49,4 +49,12 @@ class userController extends Controller
 
         return redirect('/login');
     }
+
+    public function logOut(){
+        Auth::logout();
+        $request->session()->invalidate();
+        $request->session()->regenerateToken();
+
+        return redirect('/');
+    }
 }
