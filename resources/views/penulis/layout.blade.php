@@ -27,17 +27,17 @@
           </nav>
     </header>
     <main class="bg-body-tertiary">
-        <div class="d-flex" style="width: 100vh">
+        <div class="d-flex" style="width: 100%">
             <section class=" text-center text-white">
                 <div class="bg-primary rounded-end" style="height: 89vh; width: 35vh">
                     <div>
-                        <a href="#home" class="text-decoration-none text-reset"><p>Home</p></a>
+                        <a href="/dashboard" class="text-decoration-none text-reset"><p>Home</p></a>
                     </div>
                     <div>
-                        <a href="#berita" class="text-decoration-none text-reset"><p>Berita</p></a>
+                        <a href="/dashboard/berita" class="text-decoration-none text-reset"><p>Berita</p></a>
                     </div>
                     <div>
-                        <a href="#comment" class="text-decoration-none text-reset"><p>Comment</p></a>
+                        <a href="/dashboard/comment" class="text-decoration-none text-reset"><p>Comment</p></a>
                     </div>
                 </div>
             </section>

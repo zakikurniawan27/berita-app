@@ -18,7 +18,7 @@ class beritaController extends Controller
 
         if(Auth::check()){
             $id = Auth::user()->id;
-            $berita = berita::where('user_id', '=', $id)->get();
+            $berita = berita::where('user_id', '=', $id);
 
             return view('penulis.dashboard', compact('berita'));
         }
@@ -26,4 +26,19 @@ class beritaController extends Controller
         return view('home.home');
     }
 
+    public function penulisBerita(){
+
+        if(Auth::check()){
+            $id = Auth::user()->id;
+            $berita = user::join('beritas', 'users.id', '=', 'beritas.user_id')->where('users.id', '=', $id)->get();
+
+            return view('penulis.berita', compact('berita'));
+        }
+
+        return view('home.home');
+    }
+
+    public function createBerita(){
+        return view('penulis.createBerita');
+    }
 }

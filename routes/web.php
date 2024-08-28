@@ -13,3 +13,6 @@ Route::post('/reg', [Auth::class, 'createRegistrasi'])->name('createRegistrasi')
 Route::post('/logout', [Auth::class, 'logOut'])->name('logOut');
 
 Route::get('/dashboard', [Berita::class, 'penulisHome'])->name('penulisHome');
+Route::get('/dashboard/berita', [Berita::class, 'penulisBerita'])->name('penulisBerita');
+Route::get('/dashboard/berita/create', [Berita::class, 'createBerita'])->name('createBerita');
+Route::get('/dashboard/comment', [Berita::class, 'penulisHome'])->name('penulisHome');
