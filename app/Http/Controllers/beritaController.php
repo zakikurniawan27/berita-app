@@ -18,7 +18,7 @@ class beritaController extends Controller
 
         if(Auth::check()){
             $id = Auth::user()->id;
-            $berita = berita::where('user_id', '=', $id);
+            $berita = berita::where('user_id', '=', $id)->get();
 
             return view('penulis.dashboard', compact('berita'));
         }
