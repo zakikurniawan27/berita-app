@@ -7,7 +7,7 @@
         <h3 class="card-title ps-3 pt-3">Berita</h3>
         <div class="card-body">
             <div class="d-flex justify-content-end mb-3">
-                <a href="/dashboard/berita/create" class="text-reset text-decoration-none">
+                <a href="{{route('createBerita')}}" class="text-reset text-decoration-none">
                     <button type="button" class="btn btn-primary">
                         <span class="fs-5"> + </span>Tambah Berita
                     </button>    
@@ -20,6 +20,7 @@
                         <th>Title</th>
                         <th>Content</th>
                         <th>Created At</th>
+                        <th>Action</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -29,6 +30,18 @@
                         <td>{{$item->title}}</td>
                         <td>{{$item->content}}</td>
                         <td>{{$item->created_at}}</td>
+                        <td>
+                            <div class="d-flex">
+                                <a href="http://">
+                                <button type="button" class="btn btn-warning">Edit</button>
+                                </a>
+                                <a href="http://">
+                                <button class="btn btn-danger ms-2">
+                                    Delete
+                                </button>
+                                </a>
+                            </div>
+                        </td>
                     </tr>
                     @endforeach
                 </tbody>

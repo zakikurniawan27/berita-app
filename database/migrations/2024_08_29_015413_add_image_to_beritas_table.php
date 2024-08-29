@@ -11,13 +11,10 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('beritas', function (Blueprint $table) {
-            $table->id();
-            $table->unsignedBigInteger('user_id');
-            $table->foreign('user_id')->references('id')->on('users');
-            $table->string('title');
-            $table->longText('content');
-            $table->timestamps();
+        Schema::table('beritas', function (Blueprint $table) {
+            $table->after('title', function($table){
+                $table->string('image')->nullable();
+            });
         });
     }
 
@@ -26,6 +23,8 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('beritas');
+        Schema::table('beritas', function (Blueprint $table) {
+            $table->dropColumn('image');
+        });
     }
 };

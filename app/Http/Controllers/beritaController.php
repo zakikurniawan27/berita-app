@@ -5,8 +5,9 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Facades\Storage;
 use App\Models\User as user;
-use App\Models\Berita as berita;
+use App\Models\Berita;
 
 class beritaController extends Controller
 {
@@ -18,7 +19,7 @@ class beritaController extends Controller
 
         if(Auth::check()){
             $id = Auth::user()->id;
-            $berita = berita::where('user_id', '=', $id)->get();
+            $berita = Berita::where('user_id', '=', $id)->get();
 
             return view('penulis.dashboard', compact('berita'));
         }
@@ -39,6 +40,27 @@ class beritaController extends Controller
     }
 
     public function createBerita(){
-        return view('penulis.createBerita');
+
+        $id = Auth::user()->id;
+
+        return view('penulis.createBerita', compact('id'));
+    }
+
+    public function storeBerita(Request $request){
+        
+        
+        $data = $request->validate([
+            'title'=> 'required',
+            'image'=>'image|mimes:png,jpg,jpeg',
+            'content'=> 'required'    
+        ]);
+
+        $data['user_id'] = auth()->user()->id;
+        if($request->file('image')){
+            $data['image'] = $request->file('image')->store('images');
+        }
+
+        Berita::create($data);
+        return redirect()->route('penulisBerita');
     }
 }
