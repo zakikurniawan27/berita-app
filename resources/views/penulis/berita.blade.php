@@ -27,19 +27,29 @@
                     @foreach ($berita as $item)
                     <tr>
                         <td>{{$item->username}}</td>
-                        <td>{{$item->title}}</td>
-                        <td>{{$item->content}}</td>
-                        <td>{{$item->created_at}}</td>
+                        <td>
+                            <p class="d-inline-block text-truncate" style="max-width: 125px;">
+                                {{$item->title}}
+                            </p>
+                        </td>
+                        <td>
+                            <p class="d-inline-block text-truncate" style="max-width: 155px;">
+                                {{$item->content}}
+                            </p>
+                        </td>
+                        <td>{{$item->created_at->toDateString()}}</td>
                         <td>
                             <div class="d-flex">
                                 <a href="{{route('editBerita', $item->id)}}">
                                 <button type="button" class="btn btn-warning ms-2">Edit</button>
                                 </a>
-                                <a href="">
-                                <button class="btn btn-danger ms-2">
-                                    Delete
-                                </button>
-                                </a>
+                                <form onsubmit="return confirm('apakah data ini mau dihapus?')" action="{{route('destroyBerita', $item->id)}}" method="POST" >
+                                    @csrf
+                                    @method('DELETE')
+                                    <button class="btn btn-danger ms-2">
+                                        Delete
+                                    </button>
+                                </form>
                             </div>
                         </td>
                     </tr>

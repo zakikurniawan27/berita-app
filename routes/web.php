@@ -21,4 +21,6 @@ Route::post('/dashboard/berita/create/post', [Berita::class, 'storeBerita'])->na
 Route::get('/dashboard/berita/edit/{id}', [Berita::class, 'editBerita'])->name('editBerita');
 Route::put('/dashboard/berita/edit/up/{id}', [Berita::class, 'updateBerita'])->name('updateBerita');
 
+Route::delete('/dashboard/berita/delete/{id}', [Berita::class, 'destroyBerita'])->name('destroyBerita');
+
 Route::get('/dashboard/comment', [Berita::class, 'penulisHome'])->name('penulisHome');

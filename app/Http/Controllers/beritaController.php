@@ -89,4 +89,13 @@ class beritaController extends Controller
 
         return redirect()->route('penulisBerita');
     }
+
+    public function destroyBerita(string $id){
+        $del = Berita::find($id);
+
+        Storage::delete($del->image);
+        $del->delete();
+
+        return redirect()->route('penulisBerita');
+    }
 }
