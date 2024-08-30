@@ -63,4 +63,30 @@ class beritaController extends Controller
         Berita::create($data);
         return redirect()->route('penulisBerita');
     }
+    
+    public function editBerita(string $id){
+        $data = Berita::find($id);
+
+        return view('penulis.edit', compact('data'));
+    }
+
+    public function updateBerita(Request $request, string $id){
+        $berita = Berita::find($id);
+        
+        $data = $request->validate([
+            'title'=> 'required',
+            'image'=>'image|mimes:png,jpg,jpeg',
+            'content'=> 'required'    
+        ]);
+
+        if($request->file('image')){
+            if($berita->image !== null)Storage::delete($berita->image);
+
+            $data['image'] = $request->file('image')->store('images');
+        }
+
+        Berita::whereId($id)->update($data);
+
+        return redirect()->route('penulisBerita');
+    }
 }

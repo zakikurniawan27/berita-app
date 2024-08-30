@@ -18,4 +18,7 @@ Route::get('/dashboard/berita', [Berita::class, 'penulisBerita'])->name('penulis
 Route::get('/dashboard/berita/create', [Berita::class, 'createBerita'])->name('createBerita');
 Route::post('/dashboard/berita/create/post', [Berita::class, 'storeBerita'])->name('storeBerita');
 
+Route::get('/dashboard/berita/edit/{id}', [Berita::class, 'editBerita'])->name('editBerita');
+Route::put('/dashboard/berita/edit/up/{id}', [Berita::class, 'updateBerita'])->name('updateBerita');
+
 Route::get('/dashboard/comment', [Berita::class, 'penulisHome'])->name('penulisHome');

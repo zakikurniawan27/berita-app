@@ -32,10 +32,10 @@
                         <td>{{$item->created_at}}</td>
                         <td>
                             <div class="d-flex">
-                                <a href="http://">
-                                <button type="button" class="btn btn-warning">Edit</button>
+                                <a href="{{route('editBerita', $item->id)}}">
+                                <button type="button" class="btn btn-warning ms-2">Edit</button>
                                 </a>
-                                <a href="http://">
+                                <a href="">
                                 <button class="btn btn-danger ms-2">
                                     Delete
                                 </button>
