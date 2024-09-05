@@ -50,7 +50,7 @@ class userController extends Controller
         return redirect('/login');
     }
 
-    public function logOut(){
+    public function logOut(Request $request){
         Auth::logout();
         $request->session()->invalidate();
         $request->session()->regenerateToken();
