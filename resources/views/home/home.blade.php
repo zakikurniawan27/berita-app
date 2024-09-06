@@ -7,7 +7,7 @@
     <div class="card bg-white p-2"style="height: max-content; width: max-content">
         <div class="card-body">
             <h3 class="card-title">{{$post->title}}</h3>
-            <img src="{{ URL('storage/app/' . $post->image) }}" alt="image">
+            <img src="{{ asset($post->image) }}" alt="image" width="100">
             <div class="p-1">
                 <p class="d-inline-block text-truncate" style="width: 700px">{{$post->content}}</p>
             </div>

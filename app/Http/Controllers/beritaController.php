@@ -56,10 +56,13 @@ class beritaController extends Controller
             'image'=>'image|mimes:png,jpg,jpeg',
             'content'=> 'required'    
         ]);
-
+        
         $data['user_id'] = auth()->user()->id;
+        $imageName = time().'.'.$request->image->extension();
+        $uploadImage = $request->image->move(public_path('images'), $imageName);
+        $imagePath = 'images/' .$imageName;
         if($request->file('image')){
-            $data['image'] = $request->file('image')->store('images');
+            $data['image'] = $imagePath;
         }
 
         Berita::create($data);
