@@ -12,7 +12,9 @@ use App\Models\Berita;
 class beritaController extends Controller
 {
     public function home (){
-        return view('home.home');
+        $berita = Berita::get();
+        
+        return view('home.home', compact('berita'));
     }
 
     public function penulisHome(){
