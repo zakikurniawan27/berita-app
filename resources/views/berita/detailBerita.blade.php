@@ -11,7 +11,7 @@
                 <img src="{{ asset($berita->image) }}" alt="image" width="300">
             </div>
             <div class="mt-3">
-                <p class="fs-6" style="text-align: justify; text-indent: 2rem">{{$berita->content}}</p>
+                <p class="fs-6" style="text-align: justify; text-indent: 2rem">{!!$berita->content!!}</p>
             </div>
         </div>
     </div>

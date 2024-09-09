@@ -16,7 +16,8 @@
                 </div>
                 <div class="mb-3">
                     <label for="content" class="form-label">Content</label>
-                    <textarea class="form-control" name="content" id="content" rows="3"></textarea>
+                    <input id="x" type="hidden" name="content">
+                    <trix-editor input="x" class="trix-content"></trix-editor>
                 </div>
                 <div class="input-group mb-3">
                     <input type="file" name="image" class="form-control" id="imageContent" accept=".png, .jpg, .jpeg">

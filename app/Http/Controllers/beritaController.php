@@ -12,7 +12,7 @@ use App\Models\Berita;
 class beritaController extends Controller
 {
     public function home (){
-        $berita = Berita::get();
+        $berita = Berita::latest()->paginate(5);
         
         return view('home.home', compact('berita'));
     }
