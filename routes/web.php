@@ -5,6 +5,7 @@ use App\Http\Controllers\userController as Auth;
 use App\Http\Controllers\beritaController as Berita;
 
 Route::get('/', [Berita::class,'home'])->name('home');
+Route::get('/detail/{id}/berita', [Berita::class, 'showDetail'])->name('showDetail');
 
 Route::get('/login', [Auth::class, 'login'])->name('login');
 Route::post('/log', [Auth::class, 'createLogin'])->name('createLogin');

@@ -95,6 +95,12 @@ class beritaController extends Controller
         return redirect()->route('penulisBerita');
     }
 
+    public function showDetail (string $id){
+        $berita = Berita::find($id);
+
+        return view('berita.detailBerita', compact('berita'));
+    }
+
     public function destroyBerita(string $id){
         $del = Berita::find($id);
 

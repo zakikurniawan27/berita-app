@@ -12,7 +12,7 @@
                 <p class="d-inline-block text-truncate" style="width: 700px">{{$post->content}}</p>
             </div>
             <div>
-                <a href="">
+                <a href="{{route('showDetail', $post->id)}}">
                     <button class="btn btn-primary">Baca Selengkapnya</button>
                 </a>
             </div>
