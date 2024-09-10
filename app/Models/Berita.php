@@ -13,11 +13,15 @@ class Berita extends Model
     protected $fillable = [
         'title',
         'user_id',
+        'comment_id',
         'image',
         'content',
     ];
 
     public function users(): BelongsTo{
         return $this->belongsTo(User::class);
+    }
+    public function comments(): BelongsTo{
+        return $this->belongsTo(Comment::class);
     }
 }
