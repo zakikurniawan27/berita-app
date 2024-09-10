@@ -25,7 +25,7 @@
                 </div>
                 <div>
                     <p class="fs-6">
-                        Total Comment : 0
+                        Total Comment : {{count($comment)}}
                     </p>
                 </div>
             </div>

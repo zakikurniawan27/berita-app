@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Storage;
 use App\Models\User as user;
 use App\Models\Berita;
+use App\Models\Comment as comment;
 
 class beritaController extends Controller
 {
@@ -22,8 +23,9 @@ class beritaController extends Controller
         if(Auth::check()){
             $id = Auth::user()->id;
             $berita = Berita::where('user_id', '=', $id)->get();
+            $comment = comment::get();
 
-            return view('penulis.dashboard', compact('berita'));
+            return view('penulis.dashboard', compact('berita', 'comment'));
         }
 
         return view('home.home');

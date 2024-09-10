@@ -3,9 +3,11 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\userController as Auth;
 use App\Http\Controllers\beritaController as Berita;
+use App\Http\Controllers\commentController as Comment;
 
 Route::get('/', [Berita::class,'home'])->name('home');
 Route::get('/detail/{id}/berita', [Berita::class, 'showDetail'])->name('showDetail');
+Route::post('/create/comment/{id}', [Comment::class, 'createComment'])->name('createComment');
 
 Route::get('/login', [Auth::class, 'login'])->name('login');
 Route::post('/log', [Auth::class, 'createLogin'])->name('createLogin');
@@ -24,4 +26,4 @@ Route::put('/dashboard/berita/edit/up/{id}', [Berita::class, 'updateBerita'])->n
 
 Route::delete('/dashboard/berita/delete/{id}', [Berita::class, 'destroyBerita'])->name('destroyBerita');
 
-Route::get('/dashboard/comment', [Berita::class, 'penulisHome'])->name('penulisHome');
+Route::get('/dashboard/comment', [Comment::class, 'comment'])->name('comment');
