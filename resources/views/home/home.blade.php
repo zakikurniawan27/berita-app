@@ -2,7 +2,7 @@
 
 @section('content')
 
-<div class="d-flex flex-column justify-content-center align-items-center" style="width: 100%; height: 85vh">
+<div class="d-flex flex-column justify-content-center align-items-center" style="width: 100%; height: max-content">
     @forelse($berita as $post)
     <div class="card bg-white p-2 mt-3"style="height: max-content; width: max-content">
         <div class="card-body">

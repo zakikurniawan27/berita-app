@@ -34,7 +34,7 @@
                         </td>
                         <td>
                             <p class="d-inline-block text-truncate" style="max-width: 155px;">
-                                {{$item->content}}
+                                {{strip_tags($item->content)}}
                             </p>
                         </td>
                         <td>{{$item->created_at->toDateString()}}</td>

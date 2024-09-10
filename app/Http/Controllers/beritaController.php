@@ -84,10 +84,13 @@ class beritaController extends Controller
             'content'=> 'required'    
         ]);
 
+        $imageName = time().'.'.$request->image->extension();
+        $uploadImage = $request->image->move(public_path('images'), $imageName);
+        $imagePath = 'images/' .$imageName;
         if($request->file('image')){
             if($berita->image !== null)Storage::delete($berita->image);
 
-            $data['image'] = $request->file('image')->store('images');
+            $data['image'] = $imagePath;
         }
 
         Berita::whereId($id)->update($data);
