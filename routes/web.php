@@ -27,3 +27,4 @@ Route::put('/dashboard/berita/edit/up/{id}', [Berita::class, 'updateBerita'])->n
 Route::delete('/dashboard/berita/delete/{id}', [Berita::class, 'destroyBerita'])->name('destroyBerita');
 
 Route::get('/dashboard/comment', [Comment::class, 'comment'])->name('comment');
+Route::get('/dashboard/{id}/comment/detail', [Comment::class, 'showDetailComment'])->name('showDetailComment');

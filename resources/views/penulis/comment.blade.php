@@ -26,7 +26,7 @@
                         </td>
                         <td>{{$item->created_at->toDateString()}}</td>
                         <td>
-                            <a href="{{route('editBerita', $item->id)}}">
+                            <a href="{{route('showDetailComment', $item->id)}}">
                                 <button type="button" class="btn btn-warning ms-2">Detail</button>
                             </a>
                         </td>
