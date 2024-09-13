@@ -12,8 +12,9 @@ use App\Models\Comment as comment;
 
 class beritaController extends Controller
 {
-    public function home (){
-        $berita = Berita::latest()->paginate(5);
+    public function home (Request $request){
+        $search = $request->input('search');
+        $berita = Berita::where('title', 'like', "%$search%")->latest()->paginate(5);
         
         return view('home.home', compact('berita'));
     }
